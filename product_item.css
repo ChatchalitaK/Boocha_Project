@@ -1,0 +1,241 @@
+@import url('https://fonts.googleapis.com/css2?family=Spartan:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+* {
+    font-family: "Spartan", sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.logo {
+    max-width: 55px;
+    width: 90%;
+    height: auto;
+  }
+  
+
+h1 {
+    font-size: 50px;
+    line-height: 64px;
+    color: #1E140B;
+}
+
+h2 {
+    font-size: 46px;
+    line-height: 54px;
+    color: #1E140B;
+}
+
+h3 {
+    font-size: 30px;
+    line-height: 54px;
+    color: #1E140B;
+}
+
+h4 {
+    font-size: 20px;
+    color: #1E140B;
+}
+
+h4 {
+    font-weight: 700;
+    color: #1E140B;
+}
+
+P {
+    font-size: 16px;
+    color: #455A20;
+    margin: 15px 0 20px 0;
+}
+
+.section-p1 {
+    padding: 40px 80px;
+}
+
+.section-m1 {
+    margin: 40px 0;
+}
+
+body {
+    width: 100%;
+    background-color: #F2DEC2;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/*Header Start */
+#header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 80px;
+    background: #DEC89E;
+    box-shadow: none;
+    outline: none;
+    z-index: 999;
+    position: sticky;
+    top: 0;
+    left: 0;
+}
+
+#navbar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#navbar li{
+    list-style: none;
+    padding: 0 20px;
+}
+
+#navbar li a {
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 600;
+    color: #1E140B;
+    transition: 0.3s ease;
+}
+
+#navbar li a :hover,
+#navbar li a.active {
+    color: #455A20;
+}
+
+.product-container {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+    padding: 30px;
+    max-width: 1100px;
+    margin: 40px auto;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.product-image {
+    width: 350px;
+    height: auto;
+    border-radius: 20px;
+    object-fit: cover;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    margin-left: 40px;
+}
+
+.product-details {
+    flex: 1;
+    padding: 20px;
+    font-weight: 500;
+}
+
+.product-details h2 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.product-details p {
+    margin: 10px 0;
+    line-height: 1.5;
+    text-align: justify; 
+    margin-right: 20px;
+    color: #1E140B;
+}
+
+.product-details .price-stock p {
+    color: #455A20; /* สีของ Price และ Stock */
+}
+
+.price-stock {
+    font-size: 1.1rem;
+    margin-top: 20px;
+    font-weight: 600;
+}
+
+.quantity-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.quantity-container input[type="number"] {
+    width: 60px;
+    text-align: center;
+    font-size: 1rem;
+    padding: 5px;
+    border-radius: 5px;
+    border: 2px solid #F2DEC2;
+}
+
+.quantity-container button {
+    width: 30px;
+    height: 30px;
+    font-size: 18px;
+    font-weight: bold;
+    background-color: #ddd;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.add-to-cart-btn {
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: 600;
+    background-color: #BEC39E;
+    color: #1E140B;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.view-review-btn {
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: 600;
+    background-color: #DEC89E;
+    color: #1E140B;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.error-message {
+    color: red;
+    font-size: 0.9rem;
+    margin-left: 10px;
+}
+
+footer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    z-index: 1; 
+    background-color: #BEC39E;
+    color: #1E140B;  /* เปลี่ยนสีตัวอักษรเป็นสีขาว */
+    padding: 40px 10px 10px;
+    margin-top: auto;
+}
+
+footer .col {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 20px;
+    margin-left: 40px;
+    color: #1E140B;
+    font-weight: 700;
+}
+
+footer .col p {
+    margin: 4px 0;  /* ลดระยะห่าง */
+    line-height: 1.3; /* ทำให้บรรทัดชิดกัน */
+    color: #1E140B;
+}
+
+footer .follow {
+    margin-bottom: 10px;  /* เพิ่มระยะห่างระหว่าง 'Follow us' และ 'Contact' */
+}

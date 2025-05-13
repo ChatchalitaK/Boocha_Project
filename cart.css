@@ -1,0 +1,330 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Spartan:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+* {
+    font-family: "Spartan", sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.logo {
+    max-width: 55px;
+    width: 90%;
+    height: auto;
+  }
+  
+
+h1 {
+    font-size: 50px;
+    line-height: 64px;
+    color: #1E140B;
+}
+
+h2 {
+    font-size: 46px;
+    line-height: 54px;
+    color: #1E140B;
+}
+
+h4 {
+    font-size: 20px;
+    color: #1E140B;
+}
+
+h4 {
+    font-weight: 700;
+    color: #1E140B;
+}
+
+P {
+    font-size: 16px;
+    color: #455A20;
+    margin: 15px 0 20px 0;
+}
+
+.section-p1 {
+    padding: 40px 80px;
+}
+
+.section-m1 {
+    margin: 40px 0;
+}
+
+body {
+    overflow-x: hidden;
+    width: 100%;
+    background-color: #F2DEC2;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/*Header Start */
+#header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 80px;
+    background: #DEC89E;
+    box-shadow: none;
+    outline: none;
+    z-index: 999;
+    position: sticky;
+    top: 0;
+    left: 0;
+}
+
+#navbar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#navbar li{
+    list-style: none;
+    padding: 0 20px;
+}
+
+#navbar li a {
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 600;
+    color: #1E140B;
+    transition: 0.3s ease;
+}
+
+#navbar li a :hover,
+#navbar li a.active {
+    color: #455A20;
+}
+
+.choose-all {
+    margin-top: 20px;
+    margin-left: 80px;
+    margin-bottom: 20px;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.cart-item {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 30px 40px;
+    margin-bottom: 20px;
+    margin-left: 40px;
+    margin-right: 40px;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+    transition: background-color 0.3s;
+}
+
+.cart-item.selected input[type="checkbox"]:checked {
+    accent-color: #1E140B; 
+}
+
+.choose-all input[type="checkbox"]:checked {
+    accent-color: #1E140B; 
+}
+
+/* เมื่อเลือกให้มีสีพื้นหลัง */
+.cart-item.selected {
+    background-color: #f0f0f0;  /* เปลี่ยนเป็นสีที่ต้องการ */
+}
+
+/* ติ๊กเลือกแล้ว เปลี่ยนสีให้เป็นเข้ม */
+input[type="checkbox"]:checked {
+    accent-color: #1E140B;  /* สีสำหรับติ๊กเลือก */
+}
+
+.cart-item img {
+    width: 130px;
+    height: 130px;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+.item-details {
+    flex-grow: 1;
+}
+
+.unit-price {
+    font-size: 18px;
+    font-weight: 500;
+    min-width: 100px;
+    text-align: right;
+}
+
+.total-item-price {
+    font-size: 20px;
+    font-weight: bold;
+    min-width: 100px;
+    text-align: right;
+    color: #1E140B;
+}
+
+.cart-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.cart-footer {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-top: 30px;
+    gap: 20px; 
+    padding: 20px;
+    margin-top: auto;
+}
+
+.total-price {
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+#buyBtn {
+    background: #AD8E69;
+    color: #fff;
+    padding: 10px 30px;
+    font-size: 18px;
+    font-weight: 600;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-right: 24px;
+    margin-bottom: 20px;
+}
+
+#buyBtn:hover {
+    background: #a7865f;
+}
+
+/* ปุ่ม Edit */
+.edit-btn {
+    background-color: #BEC39E;  /* สีเขียว */
+    color: #1E140B;               /* สีตัวอักษร */
+    padding: 10px 20px;         /* ระยะห่างภายในปุ่ม */
+    border: none;               /* เอาขอบปุ่มออก */
+    border-radius: 5px;         /* ทำให้มุมปุ่มมน */
+    cursor: pointer;           /* ให้แสดงเป็นมือเมื่อวางเมาส์ */
+    font-size: 12px;            /* ขนาดตัวอักษร */
+    font-weight: 500;
+    transition: background-color 0.3s ease; /* เพิ่ม transition เมื่อเปลี่ยนสี */
+}
+
+/* ปุ่ม Delete */
+.delete-btn {
+    background-color: #B55007; /* สีแดง */
+    color: white;              /* สีตัวอักษร */
+    padding: 10px 20px;        /* ระยะห่างภายในปุ่ม */
+    border: none;              /* เอาขอบปุ่มออก */
+    border-radius: 5px;        /* ทำให้มุมปุ่มมน */
+    cursor: pointer;          /* ให้แสดงเป็นมือเมื่อวางเมาส์ */
+    font-size: 12px;           /* ขนาดตัวอักษร */
+    font-weight: 500;
+    transition: background-color 0.3s ease; /* เพิ่ม transition เมื่อเปลี่ยนสี */
+}
+
+/* Modal Base Style */
+.modal {
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .modal-content {
+    background: #F2DEC2;
+    padding: 40px 50px;
+    border-radius: 16px;
+    text-align: center;
+    width: 450px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  .modal-content h3 {
+    margin-bottom: 20px; /* เพิ่มระยะห่างระหว่างหัวข้อและเนื้อหา */
+    color: #1E140B;  /* สีหัวข้อ */
+  }
+
+  .modal-content span {
+    margin-left: 10px;
+  }
+
+  .modal-content input[type="number"] {
+    width: 60px;
+    text-align: center;
+    font-size: 1rem;
+    padding: 5px;
+    border-radius: 5px;
+    border: 2px solid #DEC89E;
+  }
+  
+  .button-group {
+    margin-top: 20px;
+  }
+  
+  .button-group button {
+    margin: 10px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    color: #455A20;
+  }
+  
+  .button-group button:first-child {
+    background-color: #DEC89E;
+    color: #1E140B;
+    font-weight: 600;
+  }
+  
+  .button-group button:last-child {
+    background-color: #BEC39E;
+    color: #1E140B;
+    font-weight: 600;
+  }
+
+footer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    z-index: 1; 
+    background-color: #BEC39E;
+    color: #1E140B;  /* เปลี่ยนสีตัวอักษรเป็นสีขาว */
+    padding: 40px 10px 10px;
+    margin-top: auto;
+}
+
+footer .col {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 20px;
+    margin-left: 40px;
+    color: #1E140B;
+    font-weight: 700;
+}
+
+footer .col p {
+    margin: 4px 0;  /* ลดระยะห่าง */
+    line-height: 1.3; /* ทำให้บรรทัดชิดกัน */
+    color: #1E140B;
+}
+
+footer .follow {
+    margin-bottom: 10px;  /* เพิ่มระยะห่างระหว่าง 'Follow us' และ 'Contact' */
+}
+
