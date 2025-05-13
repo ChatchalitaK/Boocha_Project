@@ -1,0 +1,405 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;700&display=swap');
+
+* {
+    font-family: "Kanit", sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --blue: #455A20;
+    --white: #F2DEC2;
+    --gray: #DEC89E;
+    --black: #222;
+    --black2: #999;
+    --yl: #f6ebdd;
+}
+
+body {
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+.container {
+    position: relative;
+    width: 100%;
+}
+
+.navigation {
+    position: fixed;
+    width: 300px;
+    height: 100%;
+    background: var(--blue);
+    border-left: 10px solid var(--blue);
+    transition: 0.5s;
+    overflow: hidden;
+}
+
+.navigation.active {
+    width: 80px;
+}
+
+.navigation ul{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+.navigation ul li{
+    position: relative;
+    width: 100%;
+    list-style: none;
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+}
+
+.navigation ul li:hover,
+.navigation ul li.hovered {
+    background-color: var(--white);
+}
+
+.navigation ul li:nth-child(1) {
+    margin-bottom: 40px;
+    pointer-events: none;
+}
+
+.navigation ul li a {
+    position: relative;
+    display: block;
+    width: 100%;
+    display: flex;
+    text-decoration: none;
+    color: #f6ebdd;
+}
+
+.navigation ul li:hover a,
+.navigation ul li.hovered a {
+    color: var(--blue);
+}
+
+.navigation ul li a .icon{
+    position: relative;
+    display: block;
+    min-width: 60px;
+    height: 60px;
+    line-height: 75px;
+    text-align: center;
+}
+
+.navigation ul li a .icon ion-icon{
+    font-size: 1.75rem;
+}
+
+.navigation ul li a .title {
+    position: relative;
+    display: block;
+    padding: 0 10px;
+    height: 60px;
+    line-height: 60px;
+    text-align: start;
+    white-space: nowrap;
+}
+
+.navigation ul li:hover a::before,
+.navigation ul li.hovered a::before {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: -50px;
+    width: 50px;
+    height: 50px;
+    background-color: transparent;
+    border-radius: 50%;
+    box-shadow: 35px 35px 0 10px var(--white);
+    pointer-events: none;
+}
+
+.navigation ul li:hover a::after,
+.navigation ul li.hovered a::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    bottom: -50px;
+    width: 50px;
+    height: 50px;
+    background-color: transparent;
+    border-radius: 50%;
+    box-shadow: 35px -35px 0 10px var(--white);
+    pointer-events: none;
+}
+
+.fas {
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;  /* ต้องใช้ค่าตัวหนา (900) เพื่อให้ไอคอนปรากฏ */
+}
+
+/* Main Styling */
+.main {
+    position: absolute;
+    width: calc(100% - 300px);
+    left: 300px;
+    min-height: 100vh;
+    background: var(--white);
+    transition: 0.5s;
+}
+
+.main.active {
+    width: calc(100% - 80px);
+    left: 80px;
+}
+
+.topbar {
+    width: 100%;
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+}
+
+.toggle {
+    position: relative;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.5rem;
+    cursor: pointer;
+}
+
+.search {
+    position: relative;
+    width: 400px;
+    margin: 0 10px;
+}
+
+.search label {
+    position: relative;
+    width: 100%;
+}
+
+.search label input {
+    width: 100%;
+    height: 40px;
+    border-radius: 40px;
+    padding: 5px 20px;
+    padding-left: 35px;
+    font-size: 18;
+    outline: none;
+    border: 1px solid var(--black2);
+}
+
+.search label ion-icon {
+    position: absolute;
+    top: 0;
+    left: 10px;
+    font-size: 1.2rem;
+}
+
+.user {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.user img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Create Account page */
+.create-customer {
+    margin-top: 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.create-customer h2 {
+    text-align: center;
+    color: var(--blue);
+    margin-bottom: 10px;
+    font-size: 30px;
+    font-weight: 600; 
+    margin-left: 0px;
+}
+
+.create-customer-content {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+    padding: 20px;
+    max-width: 1000px;
+    width: 100%;
+}
+
+.create-customer form {
+    max-width: 600px;
+    width: 100%;
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    max-height: 65vh;
+    overflow-y: auto;
+    padding-right: 10px;
+    margin-bottom: 30px;  /* ขยับขึ้น */
+}
+
+/* ปรับการแสดงปุ่มให้อยู่ใกล้ฟอร์ม */
+.create-customer-actions {
+    margin-top: -20px;  /* ย้ายปุ่มขึ้น */
+    text-align: center;
+    margin-left: 0px;
+}
+
+/* ฟอร์มและปุ่ม */
+.create-customer input, 
+.create-customer textarea, 
+.create-customer select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 8px;
+    margin-bottom: 16px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+}
+
+.create-customer button {
+    padding: 10px 15px;
+    background-color: var(--blue);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.create-customer button:hover {
+    background-color: #457743;
+}
+
+/* Responsive behavior */
+@media (max-width: 768px) {
+    .create-customer-content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .image-preview-side img {
+        max-width: 100%;
+    }
+}
+
+/* Order */
+
+.create-customer .remove-item {
+    background-color: #e74c3c !important;
+    color: white !important;
+    border: none;
+    border-radius: 6px;
+    padding: 6px 12px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.create-customer .remove-item:hover {
+    background-color: rgb(193, 41, 24) !important;
+}
+
+
+/* ปุ่ม Add Product */
+.create-customer .addItem {
+    background-color: rgb(171, 179, 123);  /* สีน้ำเงินฟ้า */
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 6px 12px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.create-customer .addItem:hover {
+    background-color: rgb(189, 197, 134);  /* สีน้ำเงินเข้ม */
+}
+
+.dashboard-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    margin: 100px auto;  /* เพิ่มระยะห่างด้านบน */
+    max-width: 1000px;
+}
+
+.dash-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 200px;
+    height: 150px;
+    background-color: #6a9c78; /* สี default ถ้าไม่มี class เพิ่ม */
+    color: white;
+    border-radius: 20px;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
+}
+
+.dash-btn ion-icon {
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+
+.dash-btn:hover {
+    transform: translateY(-5px);
+}
+
+.btn-tea-type {
+    background-color: #4d6d57; /* เขียวชาเข้มแต่ยังสบายตา */
+}
+
+.btn-province {
+    background-color: #b7984b; /* สีทองเบจอมส้ม ดูอบอุ่นและสุภาพ */
+}
+
+.btn-roast {
+    background-color: #a57d4a; /* น้ำตาลไหม้ */
+}
+
+.btn-grade {
+    background-color: #6f5f4d; /* สีน้ำตาลอมเทา ดูคลาสสิคและเรียบง่าย */
+}
+
+.btn-product {
+    background-color: #8e7d6d; /* สีครีมอ่อนอมเทา ให้ความรู้สึกธรรมชาติ */
+}
+
+
+
+
+.btn-tea-type:hover,
+.btn-province:hover,
+.btn-roast:hover,
+.btn-grade:hover,
+.btn-product:hover {
+    filter: brightness(1.1);
+}

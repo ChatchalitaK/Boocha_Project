@@ -1,0 +1,885 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;700&display=swap');
+
+* {
+    font-family: "Kanit", sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --blue: #455A20;
+    --white: #F2DEC2;
+    --gray: #DEC89E;
+    --black: #222;
+    --black2: #999;
+    --yl: #f6ebdd;
+}
+
+body {
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+.container {
+    position: relative;
+    width: 100%;
+}
+
+.navigation {
+    position: fixed;
+    width: 300px;
+    height: 100%;
+    background: var(--blue);
+    border-left: 10px solid var(--blue);
+    transition: 0.5s;
+    overflow: hidden;
+}
+
+.navigation.active {
+    width: 80px;
+}
+
+.navigation ul{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+.navigation ul li{
+    position: relative;
+    width: 100%;
+    list-style: none;
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+}
+
+.navigation ul li:hover,
+.navigation ul li.hovered {
+    background-color: var(--white);
+}
+
+.navigation ul li:nth-child(1) {
+    margin-bottom: 40px;
+    pointer-events: none;
+}
+
+.navigation ul li a {
+    position: relative;
+    display: block;
+    width: 100%;
+    display: flex;
+    text-decoration: none;
+    color: #f6ebdd;
+}
+
+.navigation ul li:hover a,
+.navigation ul li.hovered a {
+    color: var(--blue);
+}
+
+.navigation ul li a .icon{
+    position: relative;
+    display: block;
+    min-width: 60px;
+    height: 60px;
+    line-height: 75px;
+    text-align: center;
+}
+
+.navigation ul li a .icon ion-icon{
+    font-size: 1.75rem;
+}
+
+.navigation ul li a .title {
+    position: relative;
+    display: block;
+    padding: 0 10px;
+    height: 60px;
+    line-height: 60px;
+    text-align: start;
+    white-space: nowrap;
+}
+
+.navigation ul li:hover a::before,
+.navigation ul li.hovered a::before {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: -50px;
+    width: 50px;
+    height: 50px;
+    background-color: transparent;
+    border-radius: 50%;
+    box-shadow: 35px 35px 0 10px var(--white);
+    pointer-events: none;
+}
+
+.navigation ul li:hover a::after,
+.navigation ul li.hovered a::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    bottom: -50px;
+    width: 50px;
+    height: 50px;
+    background-color: transparent;
+    border-radius: 50%;
+    box-shadow: 35px -35px 0 10px var(--white);
+    pointer-events: none;
+}
+
+.fas {
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;  /* ต้องใช้ค่าตัวหนา (900) เพื่อให้ไอคอนปรากฏ */
+}
+
+
+/* ====================== Main ======================== */
+.main {
+    position: absolute;
+    width: calc(100% - 300px);
+    left: 300px;
+    min-height: 100vh;
+    background:  #DEC89E;
+    transition: 0.5s;
+}
+
+.main.active {
+    width: calc(100% - 80px);
+    left: 80px;
+}
+
+.topbar {
+    width: 100%;
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+}
+
+.toggle {
+    position: relative;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.5rem;
+    cursor: pointer;
+}
+
+.search {
+    position: relative;
+    width: 400px;
+    margin: 0 10px;
+}
+
+.search label {
+    position: relative;
+    width: 100%;
+}
+
+.search label input {
+    width: 100%;
+    height: 40px;
+    border-radius: 40px;
+    padding: 5px 20px;
+    padding-left: 35px;
+    font-size: 18;
+    outline: none;
+    border: 1px solid var(--black2);
+}
+
+.search label ion-icon {
+    position: absolute;
+    top: 0;
+    left: 10px;
+    font-size: 1.2rem;
+}
+
+.user {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.user img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+/* ================== Cards ==================== */
+.cardBox {
+    position: relative;
+    width: 100%;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr); /* 6 การ์ดในแต่ละแถว */
+    grid-gap: 20px; /* ลดระยะห่างระหว่างการ์ด */
+}
+
+.cardBox .card {
+    position: relative;
+    background: #fff;
+    padding: 15px; /* ลด padding */
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column; /* จัดเรียงเนื้อหาในแนวตั้ง */
+    justify-content: space-between;
+    align-items: center; /* จัดเรียงเนื้อหากลางแนวนอน */
+    cursor: pointer;
+    box-shadow: 0 7px 15px rgba(0, 0, 0, 0.08); /* ลดความเข้มของเงา */
+    min-height: 200px;
+    height: 100%;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* จัดเรียงข้อมูลภายในการ์ดให้เหมือนกันทุกการ์ด */
+.cardBox .card .cardContent {
+    display: flex;
+    flex-direction: column; /* เนื้อหาหลักในแนวตั้ง */
+    justify-content: center; /* จัดให้อยู่ตรงกลาง */
+    align-items: center; /* จัดให้อยู่กลางแนวนอน */
+    width: 100%;
+    text-align: center; /* จัดข้อความให้กลาง */
+}
+
+.cardBox .card .cardDetails {
+    display: flex;
+    justify-content: center; /* จัดข้อมูลในแนวนอนให้อยู่กลาง */
+    width: 100%;
+}
+
+/* เน้นให้ข้อความในการ์ดตรงกลาง */
+.cardBox .card .numbers,
+.cardBox .card .cardName,
+.cardBox .card .iconBx {
+    text-align: center; /* จัดข้อความกลาง */
+    width: 100%; /* ให้ทุกองค์ประกอบภายในการ์ดใช้ความกว้างเต็มที่ */
+}
+
+.cardBox .card .numbers {
+    font-weight: 500;
+    font-size: 1.8rem;
+    color: var(--blue);
+}
+
+.cardBox .card .cardName {
+    color: var(--black2);
+    font-size: 1rem;
+    margin-top: 5px;
+}
+
+.cardBox .card .iconBx {
+    font-size: 3rem;
+    color: var(--black2);
+}
+
+/* Style สำหรับ hover */
+.cardBox .card:hover {
+    background: #698735
+}
+
+.cardBox .card:hover .numbers,
+.cardBox .card:hover .cardName,
+.cardBox .card:hover .iconBx {
+    color: #fff;
+}
+
+
+
+/* ======================= Responsive Design ========================= */
+@media (max-width: 991px) {
+    .navigation {
+        left: -300px;
+    }
+
+    .navigation.active {
+        width: 300px;
+        left: 0;
+    }
+
+    .main {
+        width: 100%;
+        left: 0;
+    }
+
+    .main.active {
+        left: 300px;
+    }
+
+    .cardBox {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .details {
+        grid-template-columns: 1fr;
+    }
+
+    .recentOrders {
+        overflow-x: auto;
+    }
+
+    .status.inProgress {
+        white-space: nowrap;
+    }
+}
+
+@media (max-width: 480px) {
+    .cardBox {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .cardHeader h2 {
+        font-size: 20px;
+    }
+
+    .user {
+        min-width: 40px;
+    }
+
+    .navigation {
+        width: 100%;
+        left: -100%;
+        z-index: 1000;
+    }
+
+    .navigation.active {
+        width: 100%;
+        left: 0;
+    }
+
+    .toggle {
+        z-index: 10001;
+    }
+
+    .main.active .toggle {
+        color: #fff;
+        position: fixed;
+        right: 0;
+        left: initial;
+    }
+    
+}
+
+/* =========== product ============= */
+.product-table-container {
+    margin: 30px auto;
+    padding: 20px;
+    background: #F2DEC2;
+    border-radius: 20px;
+    box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
+    overflow-x: auto;
+}
+
+.product-table-container h2 {
+    margin-bottom: 20px;
+    margin-left: 20px; /* เพิ่มระยะห่างด้านซ้ายเพื่อเขยิบไปทางขวา */
+    color: var(--blue); /* สีตามธีม */
+    font-size: 28px; /* เพิ่มขนาดตัวอักษร */
+    font-weight: 600; /* ตัวหนาขึ้นเล็กน้อย */
+}
+
+.search {
+    margin-bottom: 20px; /* เพิ่มระยะห่างด้านล่างของ search box */
+}
+
+
+.search-insert-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem; /* เพิ่มระยะห่างจากตารางด้านล่าง */
+}
+
+.search-insert-row .search {
+    flex: 1;
+    max-width: 400px; /* จำกัดความกว้าง search box */
+}
+
+.insert-btn {
+    padding: 12px 20px;              /* ขยายพื้นที่ปุ่ม */
+    background-color: #455A20;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 16px;                 /* ขยายตัวหนังสือ */
+    display: flex;                  /* จัดไอคอนกับข้อความให้อยู่ในแนวเดียวกัน */
+    align-items: center;
+    gap: 8px;                        /* ระยะห่างระหว่างไอคอนกับข้อความ */
+    transition: background-color 0.2s ease;
+    margin-right: 20px;
+}
+
+.insert-btn ion-icon {
+    font-size: 20px;              
+}
+
+.search-insert-row .insert-btn {
+    align-self: flex-start; /* เขยิบขึ้นไปด้านบน */
+    margin-top: 4px; /* ปรับละเอียดอีกนิด */
+    margin-top: -5px; 
+}
+
+.insert-btn:hover {
+    background-color: #657e38;
+}
+
+.product-table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+
+.product-table th,
+.product-table td {
+    padding: 12px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    font-size: 14px;
+}
+
+.product-table th {
+    background-color: var(--gray);
+    font-weight: 500;
+    color: var(--black);
+    text-align: center;
+}
+
+.product-table td {
+    text-align: center;
+    vertical-align: middle;
+    font-weight: 400;
+}
+
+/* แสดงปุ่มในแนวนอนสวยงาม */
+.product-table td.actions {
+    padding: 8px;
+}
+
+.action-buttons {
+    display: inline-flex;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+.edit-btn,
+.delete-btn {
+    padding: 5px 10px;
+    border-radius: 6px;
+    font-size: 13px;
+    cursor: pointer;
+    border: none;
+    color: rgb(255, 255, 255);
+    white-space: nowrap;
+    
+}
+
+.edit-btn {
+    background-color: #457743;
+    text-decoration: none;
+}
+
+.delete-btn {
+    background-color: red;
+}
+
+/* ย่อ description แบบ ... */
+.product-table td.description {
+    max-width: 200px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Hover ทั้งแถว */
+.product-table tr:hover {
+    background: var(--blue);
+    color: var(--yl);
+}
+
+/* =========== Customer&Admin Table ============= */
+
+.customer-table-container {
+    margin: 30px auto;
+    padding: 20px;
+    background: var(--white);
+    border-radius: 20px;
+    box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
+    overflow-x: auto;
+}
+
+.customer-table-container h2 {
+    margin-bottom: 20px;
+    margin-left: 20px; /* เพิ่มระยะห่างด้านซ้ายเพื่อเขยิบไปทางขวา */
+    color: var(--blue); /* สีตามธีม */
+    font-size: 28px; /* เพิ่มขนาดตัวอักษร */
+    font-weight: 600; /* ตัวหนาขึ้นเล็กน้อย */
+}
+
+.customer-table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+
+.customer-table th,
+.customer-table td {
+    padding: 12px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    font-size: 14px;
+}
+
+.customer-table th {
+    background-color: var(--gray);
+    font-weight: 500;
+    color: var(--black);
+    text-align: center;
+}
+
+.customer-table td {
+    text-align: center;
+    vertical-align: middle;
+    font-weight: 400;
+}
+
+.customer-table th:nth-child(2), /* Username */
+.customer-table td:nth-child(2),
+.customer-table th:nth-child(6), /* Tel_number */
+.customer-table td:nth-child(6) {
+    max-width: 60px;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+/* ✅ แก้ตรงนี้ให้ถูกคอลัมน์ */
+.customer-table th:nth-child(3), /* Firstname */
+.customer-table td:nth-child(3),
+.customer-table th:nth-child(4), /* Lastname */
+.customer-table td:nth-child(4) {
+    max-width: 10px; 
+    white-space: nowrap;
+}
+
+.customer-table th:nth-child(7), /* Email */
+.customer-table td:nth-child(7) {
+    max-width: 160px;
+    word-wrap: break-word;
+}
+
+.customer-table th:nth-child(8), /* Latest update */
+.customer-table td:nth-child(8) {
+    min-width: 130px;
+}
+
+
+/* Hover ทั้งแถว */
+.customer-table tr:hover {
+    background: var(--blue);
+    color: var(--yl);
+}
+
+.pagination a:hover {
+    background-color: var(--dark-blue);
+}
+
+.pagination .active {
+    background-color: var(--dark-blue);
+    font-weight: bold;
+}
+
+.button-group {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* ระยะห่างระหว่างปุ่ม */
+    margin-top: -25px;
+}
+
+.customer-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #94a041;
+    color: white;
+    padding: 12px 20px; /* ขยาย padding ให้เท่าๆ ปุ่ม insert */
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 16px; /* ขยาย font-size */
+    font-weight: 500;
+    min-height: 48px; /* กำหนดความสูงขั้นต่ำ */
+    transition: background-color 0.3s;
+}
+
+.customer-btn ion-icon {
+    margin-right: 8px;
+    font-size: 20px;
+}
+
+.customer-btn:hover {
+    background-color: #a6b069;
+}
+
+.admin-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #94a041;
+    color: white;
+    padding: 12px 20px; /* ขยาย padding ให้เท่าๆ ปุ่ม insert */
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 16px; /* ขยาย font-size */
+    font-weight: 500;
+    min-height: 48px; /* กำหนดความสูงขั้นต่ำ */
+    transition: background-color 0.3s;
+}
+
+.admin-btn ion-icon {
+    margin-right: 8px;
+    font-size: 20px;
+}
+
+.admin-btn:hover {
+    background-color: #a6b069;
+}
+
+.insert-cus-btn {
+    padding: 12px 20px;              /* ขยายพื้นที่ปุ่ม */
+    background-color: #455A20;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 16px;                 /* ขยายตัวหนังสือ */
+    display: flex;                  /* จัดไอคอนกับข้อความให้อยู่ในแนวเดียวกัน */
+    align-items: center;
+    gap: 8px;                        /* ระยะห่างระหว่างไอคอนกับข้อความ */
+    transition: background-color 0.2s ease;
+    margin-right: 20px;
+    margin-top: 50px;
+}
+
+.insert-cus-btn ion-icon {
+    font-size: 20px;              
+}
+
+.search-insert-row .insert-cus-btn {
+    align-self: flex-start; /* เขยิบขึ้นไปด้านบน */
+    margin-top: 4px; /* ปรับละเอียดอีกนิด */
+    margin-top: 0px; 
+}
+
+.insert-cus-btn:hover {
+    background-color: #5d6f3d;
+}
+
+
+/* =========== Order Table ============= */
+
+.order-table-container {
+    margin: 30px auto;
+    padding: 20px;
+    background: var(--white);
+    border-radius: 20px;
+    box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
+    overflow-x: auto;
+}
+
+.order-table-container h2 {
+    margin-bottom: 20px;
+    margin-left: 20px; /* เพิ่มระยะห่างด้านซ้ายเพื่อเขยิบไปทางขวา */
+    color: var(--blue); /* สีตามธีม */
+    font-size: 28px; /* เพิ่มขนาดตัวอักษร */
+    font-weight: 600; /* ตัวหนาขึ้นเล็กน้อย */
+}
+
+.order-table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+
+.order-table th,
+.order-table td {
+    padding: 12px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    font-size: 14px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.order-table th {
+    background-color: var(--gray);
+    font-weight: 500;
+    color: var(--black);
+}
+
+.order-table td {
+    /* ปรับปรุงการจัดระยะห่างและทำให้ข้อความชัดเจน */
+    text-align: center;
+    vertical-align: middle;
+    font-weight: 400;
+}
+
+/* ===== Pagination Style ===== */
+.pagination {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.pagination a {
+    padding: 8px 12px;
+    margin: 0 4px;
+    text-decoration: none;
+    border-radius: 6px;
+    background-color: var(--gray);
+    color: var(--black);
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+
+.pagination a:hover {
+    background-color: var(--blue);
+    color: white;
+}
+
+.pagination .active {
+    background-color: var(--blue);
+    font-weight: bold;
+    color: var(--white);
+}
+
+.pagination a.active {
+    background-color: var(--blue);
+    color: white;
+}
+
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 999; 
+    right: 450px; /* ห่างจากขอบขวาของหน้าจอ */
+    bottom: 250px; /* ขยับขึ้นจากขอบล่างของหน้าจอ */
+    width: 400px; 
+    height: auto; 
+    background-color: rgba(0, 0, 0, 0.4); /* ความโปร่งใสของพื้นหลัง */
+    overflow: hidden; /* ป้องกันไม่ให้มีการทับซ้อนจากมุมที่ไม่ต้องการ */
+    border-radius: 10px; /* ให้มุมกล่องมีความโค้ง */
+}
+
+.modal-content {
+    background-color: #ffb8b8; /* สีพื้นหลังของเนื้อหา */
+    margin: auto;
+    padding: 20px;
+    border: 1px; /* ลบขอบทั้งหมด */
+    border-radius: 10px; /* ทำมุมให้โค้งมน */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* เพิ่มเงาให้กับกล่อง */
+    text-align: center;
+    overflow: hidden; /* ป้องกันไม่ให้เนื้อหาล้นออกจากขอบ */
+}
+
+.confirm-btn {
+    background-color: red;
+    color: white;
+    padding: 10px 20px;
+    margin: 10px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.cancel-btn {
+    background-color: gray;
+    color: white;
+    padding: 10px 20px;
+    margin: 10px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.cardBox {
+    display: flex;
+    flex-wrap: wrap;  /* ให้ cardBox มีการแยกคอลัมน์เป็นหลายแถว */
+    gap: 20px;        /* ช่องว่างระหว่าง card */
+}
+
+.card {
+    background: #fff;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    flex: 1 1 calc(16.6666% - 20px); /* ให้ cardBox มี 3 คอลัมน์ */
+}
+
+/* กราฟ */
+.graphs {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;  /* ให้กราฟอยู่ในแถวเดียวกัน */
+    margin-top: 20px; /* เพิ่มช่องว่างด้านบนให้กราฟ */
+    justify-content: center;  /* จัดกราฟให้อยู่ตรงกลางแนวนอน */
+    align-items: center; 
+}
+
+.graphs .chartCard {
+    background: #fff;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 45%;  /* ทำให้กราฟใช้พื้นที่เต็มความกว้าง */
+    height: 550px; /* เพิ่มความสูงให้กราฟ */
+}
+
+#lineChart2, #pieChart2 {
+    width: 100% !important;  /* ขยายกราฟให้เต็มพื้นที่ */
+    height: 100% !important; /* ขยายกราฟให้เต็มพื้นที่ */
+}
+
+/* จัดการการแสดงผลปุ่มให้อยู่ตรงกลาง */
+.time-buttons {
+    display: flex;
+    justify-content: center;  /* จัดตำแหน่งให้ปุ่มอยู่ตรงกลางแนวนอน */
+    align-items: center;      /* จัดตำแหน่งให้ปุ่มอยู่ตรงกลางแนวตั้ง */
+    gap: 30px;                /* ระยะห่างระหว่างปุ่ม */
+    margin-top: 20px;         /* เว้นระยะห่างด้านบน (ถ้าต้องการ) */
+}
+
+.time-buttons button {
+    padding: 10px 20px;       /* ขนาดของปุ่ม */
+    font-size: 16px;           /* ขนาดตัวอักษร */
+    border: none;              /* เอาขอบออก */
+    background-color:var(--blue); /* สีพื้นหลังของปุ่ม */
+    color: white;              /* สีตัวอักษร */
+    border-radius: 5px;        /* มุมโค้งของปุ่ม */
+    cursor: pointer;          /* ให้ปุ่มมี cursor แบบมือเมื่อชี้ */
+    transition: background-color 0.3s ease; /* เพิ่มการเปลี่ยนสีเมื่อ hover */
+}
+
+.time-buttons button:hover {
+    background-color: rgb(79, 120, 80); /* เปลี่ยนสีเมื่อ hover */
+}
+
+.time-buttons button.active {
+    background-color: rgb(79, 120, 80); /* เปลี่ยนสีของปุ่มที่ถูกเลือก */
+}
